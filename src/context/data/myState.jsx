@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import myContext from './MyContext';
+import myContext from './myContext';
 
-const MyState=(props)=> {
-const [mode, setmode] = useState("light");
+function MyState(props) {
+const [mode, setMode] = useState("light");
 const toggleMode= () =>{
     if (mode=== "light"){
-        setmode="dark";
+        setMode("dark");
         document.body.style.backgroundColor = "rgb(17,24,39)";
     }
     else{
-        setMode="light";
+        setMode("light");
         document.body.style.backgroundColor="white";
     }
 }
     return (
-        <myContext.provider value={{mode, toggleMode}}>
+        <myContext.Provider value={{mode, toggleMode}}>
             {props.children}
-        </myContext.provider>
+        </myContext.Provider>
     )
 }
 

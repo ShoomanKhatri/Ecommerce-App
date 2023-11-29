@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Layout from '../../components/layout/Layout';
+import Layout from '../../components/Layout/Layout';
 import myContext from '../../context/data/myContext';
 
 const Order = () => {
