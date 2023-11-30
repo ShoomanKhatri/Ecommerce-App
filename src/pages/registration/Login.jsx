@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom'
 import myContext from '../../context/data/myContext';
 import { useContext, useState } from 'react';
@@ -75,7 +76,7 @@ function Login() {
                     </button>
                 </div>
                 <div>
-                    <h2 className='text-white'>Don't have an account <Link className=' text-yellow-500 font-bold' to={'/signup'}>Signup</Link></h2>
+                    <h2 className='text-white'>Don't have an account? <Link className=' text-yellow-500 font-bold' to={'/signup'}>Signup</Link></h2>
                 </div>
             </div>
         </div>
