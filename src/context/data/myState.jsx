@@ -14,6 +14,7 @@ const toggleMode= () =>{
     }
 }
 const [loading,setLoading]=useState(false);
+
     return (
         <myContext.Provider value={{mode, toggleMode,loading,setLoading}}>
             {props.children}
