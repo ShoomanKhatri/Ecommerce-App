@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import myContext from '../../../context/data/myContext';
+import { useContext } from 'react';
 
 function UpdateProduct() {
+
+    const context= useContext(myContext);
+    const {products, setProducts, addProduct}=context;
+
     return (
         <div>
             <div className=' flex justify-center items-center h-screen'>

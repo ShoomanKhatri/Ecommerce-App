@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import myContext from '../../context/data/myContext';
 import { toast } from 'react-toastify';
@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import Loader from '../../components/loader/Loader';
+import React from 'react';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -21,18 +22,6 @@ function Signup() {
             return toast.error("All fields are required")
         }
 
-           // Validate password length
-        if (password.length < 6) {
-            setLoading(false);
-            return toast.error("Password must be at least 6 characters long");
-        }
-
-        
-    // Validate email format
-    if (!/\S+@\S+\.\S+/.test(email)) {
-        setLoading(false);
-        return toast.error("Invalid email format");
-    }
         try {
             const users = await createUserWithEmailAndPassword(auth, email, password);
 
@@ -82,7 +71,6 @@ function Signup() {
                         name='email'
                         className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                         placeholder='Email'
-
                     />
                 </div>
                 <div>
@@ -102,7 +90,7 @@ function Signup() {
                     </button>
                 </div>
                 <div>
-                    <h2 className='text-white'>Have an account? <Link className=' text-red-500 font-bold' to={'/login'}>Login</Link></h2>
+                    <h2 className='text-white'>Have an account <Link className=' text-red-500 font-bold' to={'/login'}>Login</Link></h2>
                 </div>
             </div>
         </div>

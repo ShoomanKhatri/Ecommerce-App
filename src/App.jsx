@@ -15,17 +15,18 @@ import ProductInfo from "./pages/productInfo/ProductInfo";
 import AddProduct from "./pages/admin/page/AddProduct";
 import UpdateProduct from "./pages/admin/page/UpdateProduct";
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import Allproducts from "./pages/allproducts/AllProducts";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Order" element={
+                <Route path="/order" element={
                     <ProtectedRoute>
                         <Order />
-                        </ProtectedRoute>
+                    </ProtectedRoute>
                 } />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/dashboard" element={
@@ -33,17 +34,18 @@ function App() {
                         <Dashboard />
                     </ProtectedRoutesForAdmin>
                 } />
-                <Route path="/login" element={<Login/>} />
-                <Route path="/signup" element={<Signup/>} />
-                <Route path="/productInfo/:id" element={<ProductInfo/>} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/productInfo/:id" element={<ProductInfo />} />
+                <Route path="/allproducts" element={<Allproducts />} />
                 <Route path="/addproduct/" element={
                     <ProtectedRoutesForAdmin>
-                        <AddProduct/>
+                        <AddProduct />
                     </ProtectedRoutesForAdmin>
                 } />
                 <Route path="/updateproduct/" element={
                     <ProtectedRoutesForAdmin>
-                        <UpdateProduct/>
+                        <UpdateProduct />
                     </ProtectedRoutesForAdmin>
                 } />
                 <Route path="/*" element={<NoPage />} />
@@ -55,23 +57,23 @@ function App() {
 export default App;
 
 //user
-const ProtectedRoute=({children})=>{
-    const user= localStorage.getItem('user')
-    if(user){
+const ProtectedRoute = ({ children }) => {
+    const user = localStorage.getItem('user')
+    if (user) {
         return children
-    }else{
-        return<Navigate to= '/login' />
+    } else {
+        return <Navigate to='/login' />
     }
 }
 
 //admin
-export const ProtectedRoutesForAdmin = ({children}) => {
+export const ProtectedRoutesForAdmin = ({ children }) => {
     const admin = JSON.parse(localStorage.getItem('user'))
     console.log(admin.user.email)
     if (admin.user.email === 'admin@gmail.com') {
-      return children
+        return children
     }
     else {
-      return <Navigate to='/login' />
+        return <Navigate to='/login' />
     }
-  }
+}
