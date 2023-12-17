@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import myContext from '../../../context/data/myContext';
-import Layout from '../../../components/layout/Layout';
+import Layout from '../../../components/Layout/Layout';
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from 'react-icons/ai';
@@ -190,7 +190,7 @@ function DashboardTab() {
                                                 </tr>
                                             </thead>
                                             {allorder.cartItems.map((item, index) => {
-                                                const {title,description,category,imageUrl,price} = item;
+                                                const { title, description, category, imageUrl, price } = item;
                                                 console.log(item)
                                                 return (
                                                     <tbody>
@@ -215,7 +215,7 @@ function DashboardTab() {
                                                             </td>
 
                                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                                               {allorder.addressInfo.name}
+                                                                {allorder.addressInfo.name}
                                                             </td>
                                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                                 {allorder.addressInfo.address}
