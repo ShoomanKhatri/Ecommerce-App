@@ -29,6 +29,7 @@ function App() {
                         <Order />
                     </ProtectedRoute>
                 } />
+                {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/dashboard" element={
                     <ProtectedRoutesForAdmin>
